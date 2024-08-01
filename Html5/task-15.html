@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements Tasks</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-image: url(https://wallpapers.com/images/featured/multicolor-background-e9f6dq3ohfw1ybud.jpg);
+    }
+</style>
+
+<body>
+
+    <div class="container mt-5">
+
+        <!-- Task 1: Multiple of 3 -->
+        <div class="form-group">
+            <label for="numberInput">Enter a number to check if it is a multiple of 3:</label>
+            <input type="number" id="numberInput" class="form-control">
+            <button onclick="checkMultipleOfThree()" class="btn btn-primary mt-2">Check</button>
+            <div id="multipleOfThreeResult" class="mt-2"></div>
+        </div>
+
+        <!-- Task 2: Sub-word existence -->
+        <div class="form-group">
+            <label for="stringInput">Enter a string to check for a sub-word:</label>
+            <input type="text" id="stringInput" class="form-control">
+            <label for="subwordInput" class="mt-2">Enter the sub-word to check:</label>
+            <input type="text" id="subwordInput" class="form-control">
+            <button onclick="checkSubwordExistence()" class="btn btn-primary mt-2">Check</button>
+            <div id="subwordResult" class="mt-2"></div>
+        </div>
+
+        <!-- Task 3: Complex Interest Calculation -->
+        <div class="form-group">
+            <label for="principleInput">Enter Principle Amount:</label>
+            <input type="number" id="principleInput" class="form-control">
+            <label for="rateInput" class="mt-2">Enter Rate:</label>
+            <input type="number" id="rateInput" class="form-control">
+            <label for="timeInput" class="mt-2">Enter Time (in years):</label>
+            <input type="number" id="timeInput" class="form-control">
+            <button onclick="calculateComplexInterest()" class="btn btn-primary mt-2">Calculate</button>
+            <div id="complexInterestResult" class="mt-2"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Task 1: Check if a given number is a multiple of 3
+        function checkMultipleOfThree() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            const resultElement = document.getElementById('multipleOfThreeResult');
+            if (number % 3 === 0) {
+                resultElement.textContent = `${number} is a multiple of 3.`;
+            } else {
+                resultElement.textContent = `${number} is not a multiple of 3.`;
+            }
+        }
+
+        // Task 2: Check if a particular sub-word exists in a string
+        function checkSubwordExistence() {
+            const string = document.getElementById('stringInput').value;
+            const subword = document.getElementById('subwordInput').value;
+            const resultElement = document.getElementById('subwordResult');
+            if (string.includes(subword)) {
+                resultElement.textContent = `The sub-word '${subword}' exists in the string.`;
+            } else {
+                resultElement.textContent = `The sub-word '${subword}' does not exist in the string.`;
+            }
+        }
+
+        // Task 3: Calculate complex interest
+        function calculateComplexInterest() {
+            const principle = parseFloat(document.getElementById('principleInput').value);
+            const rate = parseFloat(document.getElementById('rateInput').value);
+            const time = parseFloat(document.getElementById('timeInput').value);
+            const resultElement = document.getElementById('complexInterestResult');
+            const interest = ((principle / rate) * time) / 100;
+            resultElement.textContent = `The complex interest is ${interest.toFixed(2)}.`;
+        }
+    </script>
+</body>
+
+</html>

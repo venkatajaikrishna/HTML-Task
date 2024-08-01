@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input and Callback</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2>User Input and Callback</h2>
+        <form id="userInputForm">
+            <div class="form-group">
+                <label for="userName">Name:</label>
+                <input type="text" id="userName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="userAge">Age:</label>
+                <input type="number" id="userAge" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="userOutput" class="mt-4"></div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function displayUserData(name, age) {
+            const outputDiv = document.getElementById('userOutput');
+            outputDiv.innerHTML = `<p>Name: ${name}</p><p>Age: ${age}</p>`;
+        }
+
+        document.getElementById('userInputForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('userName').value;
+            const age = document.getElementById('userAge').value;
+            displayUserData(name, age);
+        });
+    </script>
+</body>
+
+</html>

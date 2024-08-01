@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions and Modal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url(https://images.unsplash.com/photo-1433888104365-77d8043c9615?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvbG9yZnVsfGVufDB8fDB8fHww);
+            background-size: cover;
+        }
+        
+        button {
+            display: grid;
+            align-items: center;
+            position: absolute;
+            top: 68%;
+            left: 48.5%;
+            transform: translate(-40%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="myDiv">Color</div>
+
+    <button onclick="randomBackgroundColor()">Random Background Color</button>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    This is a Bootstrap modal.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // 1. Parameterized method to multiply 3 numbers
+        function multiplyThreeNumbers(a, b, c) {
+            return a * b * c;
+        }
+        console.log(multiplyThreeNumbers(2, 3, 4));
+
+        // 2. Parameterized method to divide 2 numbers
+        function divideTwoNumbers(a, b) {
+            if (b === 0) {
+                throw new Error("Division by zero is not allowed.");
+            }
+            return a / b;
+        }
+        console.log(divideTwoNumbers(10, 2));
+
+        // 3. Method to add background color to a div element
+        function addBackgroundColor(elementId, color) {
+            let element = document.getElementById(elementId);
+            if (element) {
+                element.style.backgroundColor = color;
+            }
+        }
+        // Example usage: addBackgroundColor("myDiv", "lightblue");
+
+        // 4. Function to generate random background color of the body
+        function randomBackgroundColor() {
+            let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        // 5. Onload of your webpage, display modal
+        $(document).ready(function() {
+            $('#myModal').modal('show');
+        });
+    </script>
+</body>
+
+</html>

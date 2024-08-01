@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops Tasks</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-image: url(https://wallpaperswide.com/download/aero_colorful_multi_colors_26-wallpaper-1680x1050.jpg);
+    }
+</style>
+
+<body>
+
+    <div class="container mt-5">
+        <h2>Loops Tasks</h2>
+
+        <!-- Task 1: Display even numbers up to n -->
+        <div class="form-group">
+            <label for="evenNumberInput">Enter a number to display even numbers up to n:</label>
+            <input type="number" id="evenNumberInput" class="form-control">
+            <button onclick="displayEvenNumbers()" class="btn btn-primary mt-2">Display</button>
+            <div id="evenNumberResult" class="mt-2"></div>
+        </div>
+
+        <!-- Task 2: Check if character is vowel or consonant -->
+        <div class="form-group">
+            <label for="charInput">Enter a character to check if it is a vowel or consonant:</label>
+            <input type="text" id="charInput" maxlength="5" class="form-control">
+            <button onclick="checkVowelOrConsonant()" class="btn btn-primary mt-2">Check</button>
+            <div id="vowelConsonantResult" class="mt-2"></div>
+        </div>
+
+        <!-- Task 3: Count of even and odd numbers from 1 to 999 -->
+        <div class="form-group">
+            <button onclick="countEvenAndOdd()" class="btn btn-primary mt-2">Count Even and Odd from 1 to 999</button>
+            <div id="evenOddCountResult" class="mt-2"></div>
+        </div>
+
+        <!-- Task 4: Count occurrence of a particular character in a string -->
+        <div class="form-group">
+            <label for="stringInput">Enter a string:</label>
+            <input type="text" id="stringInput" class="form-control">
+            <label for="charCountInput" class="mt-2">Enter the character to count:</label>
+            <input type="text" id="charCountInput" maxlength="5" class="form-control">
+            <button onclick="countCharacterOccurrences()" class="btn btn-primary mt-2">Count</button>
+            <div id="charCountResult" class="mt-2"></div>
+        </div>
+
+        <!-- Task 5: Sum and average of array elements -->
+        <div class="form-group">
+            <button onclick="calculateSumAndAverage()" class="btn btn-primary mt-2">Calculate Sum and Average</button>
+            <div id="sumAverageResult" class="mt-2"></div>
+        </div>
+
+        <!-- Task 6: Largest number in an array -->
+        <div class="form-group">
+            <button onclick="findLargestNumber()" class="btn btn-primary mt-2">Find Largest Number</button>
+            <div id="largestNumberResult" class="mt-2"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Task 1: Display even numbers up to n
+        function displayEvenNumbers() {
+            const n = parseInt(document.getElementById('evenNumberInput').value);
+            let result = '';
+            for (let i = 2; i <= n; i += 2) {
+                result += i + ' ';
+            }
+            document.getElementById('evenNumberResult').textContent = result.trim();
+        }
+
+        // Task 2: Check if character is vowel or consonant
+        function checkVowelOrConsonant() {
+            const char = document.getElementById('charInput').value.toLowerCase();
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+            let result = '';
+            if (vowels.includes(char)) {
+                result = `${char} is a vowel.`;
+            } else {
+                result = `${char} is a consonant.`;
+            }
+            document.getElementById('vowelConsonantResult').textContent = result;
+        }
+
+        // Task 3: Count of even and odd numbers from 1 to 999
+        function countEvenAndOdd() {
+            let evenCount = 0;
+            let oddCount = 0;
+            for (let i = 1; i <= 999; i++) {
+                if (i % 2 === 0) {
+                    evenCount++;
+                } else {
+                    oddCount++;
+                }
+            }
+            document.getElementById('evenOddCountResult').textContent = `Even: ${evenCount}, Odd: ${oddCount}`;
+        }
+
+        // Task 4: Count occurrence of a particular character in a string
+        function countCharacterOccurrences() {
+            const str = document.getElementById('stringInput').value;
+            const char = document.getElementById('charCountInput').value;
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === char) {
+                    count++;
+                }
+            }
+            document.getElementById('charCountResult').textContent = `Count of '${char}' in "${str}": ${count}`;
+        }
+
+        // Task 5: Sum and average of array elements
+        function calculateSumAndAverage() {
+            const array = [1, 9, 8];
+            let sum = 0;
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            const average = sum / array.length;
+            document.getElementById('sumAverageResult').textContent = `Sum: ${sum}, Average: ${average.toFixed(2)}`;
+        }
+
+        // Task 6: Largest number in an array
+        function findLargestNumber() {
+            const array = [1, 9, 8];
+            let largest = array[0];
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] > largest) {
+                    largest = array[i];
+                }
+            }
+            document.getElementById('largestNumberResult').textContent = `Largest number in the array: ${largest}`;
+        }
+    </script>
+</body>
+
+</html>

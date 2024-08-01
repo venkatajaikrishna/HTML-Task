@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Implicit Coercion Practice</title>
+</head>
+
+<style>
+    h1 {
+        margin-top: 300px;
+    }
+</style>
+
+<body style="background-color: cadetblue;">
+    <h1 style="text-align: center;">Console for JavaScript</h1>
+    <script>
+        // Implicit coercion examples
+        console.log('A' - 1); // NaN, as 'A' is not a number
+        console.log('A' + 1); // A1, string concatenation
+        console.log(2 + '2' + '2'); // 222, number 2 is coerced to a string
+        console.log('hello' + 'world' + 89); // helloworld89, string concatenation
+        console.log('hello' - 'world' + 89); // NaN, as 'hello' - 'world' results in NaN
+        console.log('hello' + 78); // hello78, string concatenation
+        console.log('78' - 90 + '2'); // -12'2', '78' is coerced to number, then concatenation with '2'
+        console.log(2 - '2' + 90); // 90, '2' is coerced to number, resulting in 2 - 2 + 90
+        console.log(89 - '90' / 2); // 44, '90' is coerced to number, so 89 - (90 / 2)
+        console.log((true == false) > 2); // false, true == false is false which is coerced to 0; 0 > 2 is false
+    </script>
+</body>
+
+</html>

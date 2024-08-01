@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <title>Home</title>
+
+</head>
+<style>
+    div {
+        background-attachment: fixed;
+        background-color: white;
+        width: 300px;
+        height: 200px;
+        margin-top: 300px;
+        margin-left: 600px;
+        box-shadow: 0px 0px 10px blue;
+    }
+</style>
+
+<body bgcolor="teal">
+    <div class="kris"><br>
+        <h1 style="text-align: center; margin-top: 20%;">Welcome to home page
+            <h1>
+    </div>
+
+
+    <script>
+        // Get the First Element Greater Than 20
+        const numbers = [10, 25, 30, 15, 20];
+
+        const firstGreaterThan20 = numbers.find(num => num > 20);
+        console.log(firstGreaterThan20); // Output: 25
+
+
+        // Get the First Element Less Than 20
+
+        const firstLessThan20 = numbers.find(num => num < 20);
+        console.log(firstLessThan20); // Output: 10
+
+
+
+        // Filter Data Based on an ID Property
+        const data = [{
+            id: 1,
+            name: 'Alice'
+        }, {
+            id: 2,
+            name: 'Bob'
+        }, {
+            id: 3,
+            name: 'Charlie'
+        }];
+
+        const randomId = 2; // Example random ID
+        const filteredData = data.filter(item => item.id === randomId);
+        console.log(filteredData); // Output: [{ id: 2, name: 'Bob' }]
+
+
+        // Check if Elements are Odd or Even
+        const numbersArray = [90, 89, 56, 45];
+
+        const isOdd = num => num % 2 !== 0;
+        const isEven = num => num % 2 === 0;
+
+        const oddNumbers = numbersArray.filter(isOdd);
+        const evenNumbers = numbersArray.filter(isEven);
+
+        console.log('Odd Numbers:', oddNumbers); // Output: [89, 45]
+        console.log('Even Numbers:', evenNumbers); // Output: [90, 56]
+
+
+
+
+        //Create a Class Book
+        class Book {
+            constructor(typeOfBook, numberOfPages, typeOfPages, author) {
+                this.typeOfBook = typeOfBook;
+                this.numberOfPages = numberOfPages;
+                this.typeOfPages = typeOfPages;
+                this.author = author;
+            }
+
+            describe() {
+                return `${this.typeOfBook} book by ${this.author}, ${this.numberOfPages} pages, ${this.typeOfPages} pages.`;
+            }
+        }
+
+        const myBook = new Book('Novel', 300, 'Glossy', 'John Doe');
+        console.log(myBook.describe()); // Output: Novel book by John Doe, 300 pages, Glossy pages.
+
+
+
+
+        // Create a Class Animal
+
+        class Animal {
+            constructor(name, gender, disease) {
+                this.name = name;
+                this.gender = gender;
+                this.disease = disease;
+            }
+
+            walk() {
+                console.log(`${this.name} is walking.`);
+            }
+
+            eat() {
+                console.log(`${this.name} is eating.`);
+            }
+
+            climb() {
+                console.log(`${this.name} is climbing.`);
+            }
+        }
+
+        const tiger = new Animal('Tiger', 'Male', 'None');
+        tiger.walk(); // Output: Tiger is walking.
+        tiger.eat(); // Output: Tiger is eating.
+        tiger.climb(); // Output: Tiger is climbing.
+    </script>
+</body>

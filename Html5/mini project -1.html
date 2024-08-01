@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #353595;
+        margin: 0;
+    }
+    
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+    
+    button {
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100px;
+    }
+    
+    button:hover {
+        background-color: #218838;
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+    
+    li {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    li button {
+        background-color: #dc3545;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    
+    li button.edit {
+        background-color: #ffc107;
+        margin-right: 5px;
+    }
+    
+    li button.edit:hover {
+        background-color: #e0a800;
+    }
+    
+    li button.delete:hover {
+        background-color: #c82333;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 style="color: #83222c;">Scoreboard</h1>
+        <form id="score-form">
+            <input type="text" id="team-input" placeholder="Add the Cricketers" required>
+            <input type="number" id="score-input" placeholder="Enter the score" required>
+            <button type="submit">Add</button>
+        </form>
+        <ul id="score-list"></ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scoreForm = document.getElementById('score-form');
+            const teamInput = document.getElementById('team-input');
+            const scoreInput = document.getElementById('score-input');
+            const scoreList = document.getElementById('score-list');
+
+            scoreForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                addScoreItem(teamInput.value, scoreInput.value);
+                teamInput.value = '';
+                scoreInput.value = '';
+            });
+
+            function addScoreItem(team, score) {
+                const li = document.createElement('li');
+                li.textContent = $ {
+                    team
+                }: $ {
+                    score
+                };
+
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.classList.add('edit');
+                editButton.addEventListener('click', () => {
+                    const newTeam = prompt('Edit team name:', team);
+                    const newScore = prompt('Edit score:', score);
+                    if (newTeam !== null && newScore !== null) {
+                        li.firstChild.textContent = $ {
+                            newTeam
+                        }: $ {
+                            newScore
+                        };
+                    }
+                });
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.classList.add('delete');
+                deleteButton.addEventListener('click', () => {
+                    scoreList.removeChild(li);
+                });
+
+                li.appendChild(editButton);
+                li.appendChild(deleteButton);
+                scoreList.appendChild(li);
+            }
+        });
+    </script>
+</body>
+
+</html>
